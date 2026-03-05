@@ -1,3 +1,5 @@
+package models;
+
 public abstract class Vehicle {
 
     String vehicleId;
@@ -26,3 +28,4 @@ public abstract class Vehicle {
         return brand + " " + model + " (" + vehicleId + ")";
     }
 }
+
