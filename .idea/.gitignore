@@ -1,3 +1,8 @@
-# Default ignored files
-/shelf/
-/workspace.xml
+# Java Build Output
+out/
+*.class
+
+# IntelliJ IDEA settings
+.idea/
+*.iml
+
