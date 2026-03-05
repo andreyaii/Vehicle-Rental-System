@@ -1,3 +1,5 @@
+package models;
+
 public class Car extends Vehicle {
 
     int numberOfDoors;
@@ -11,3 +13,4 @@ public class Car extends Vehicle {
         this.airConditioned = airConditioned;
     }
 }
+
