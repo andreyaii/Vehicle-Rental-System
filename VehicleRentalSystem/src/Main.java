@@ -4,6 +4,6 @@ public class Main {
 
         System.out.println("Welcome to Vehicle Rental System!");
         System.out.println("Testing Github by Luwi!");
-        System.out.println("Testing Devin");
+        System.out.println("Testing Devin~");
     }
 }
