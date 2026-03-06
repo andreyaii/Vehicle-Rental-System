@@ -2,7 +2,7 @@ package models;
 import java.util.*;
 
 public class Customer {
-    private String customerId = "CUS1";
+    //private String customerId = "CUS1";
     private String firstName;
     private String lastName;
     private String phoneNumber;
@@ -24,9 +24,9 @@ public class Customer {
         this.phoneNumber = phoneNumber;
     }
 
-    public String getCustomerId() {
+    /*public String getCustomerId() {
         return customerId;
-    }
+    }*/
 
     public String getFirstName() {
         return firstName;
@@ -45,6 +45,9 @@ public class Customer {
     }
 
     public void setLastName(String lastName) {
+        if (lastName.trim().isEmpty()) {
+            throw new IllegalArgumentException("Last Name cannot be empty.");
+        }
         this.lastName = lastName;
     }
 

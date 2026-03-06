@@ -3,6 +3,8 @@ import insurance.*;
 import payments.*;
 import utils.*;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
 import java.util.Scanner;
 import java.util.InputMismatchException;
 
@@ -30,33 +32,15 @@ public class Main {
                 new Truck("T3","Hino","500",5000, VehicleStatus.MAINTENANCE,5,"Large")
         };
 
-        System.out.println("                                                      ██╗    ██╗███████╗██╗      ██████╗ ██████╗ ███╗   ███╗███████╗            ");
-        System.out.println("                                                      ██║    ██║██╔════╝██║     ██╔════╝██╔═══██╗████╗ ████║██╔════╝            ");
-        System.out.println("                                                      ██║ █╗ ██║█████╗  ██║     ██║     ██║   ██║██╔████╔██║█████╗              ");
-        System.out.println("                                                      ██║███╗██║██╔══╝  ██║     ██║     ██║   ██║██║╚██╔╝██║██╔══╝              ");
-        System.out.println("                                                      ╚███╔███╔╝███████╗███████╗╚██████╗╚██████╔╝██║ ╚═╝ ██║███████╗            ");
-        System.out.println("                                                       ╚══╝╚══╝ ╚══════╝╚══════╝ ╚═════╝ ╚═════╝ ╚═╝     ╚═╝╚══════╝            ");
         System.out.println("                                                                                                              ");
-        System.out.println("                                                      ████████╗ ██████╗     ██╗   ██╗███████╗██╗  ██╗██╗ ██████╗██╗     ███████╗");
-        System.out.println("                                                      ╚══██╔══╝██╔═══██╗    ██║   ██║██╔════╝██║  ██║██║██╔════╝██║     ██╔════╝");
-        System.out.println("                                                         ██║   ██║   ██║    ██║   ██║█████╗  ███████║██║██║     ██║     █████╗  ");
-        System.out.println("                                                         ██║   ██║   ██║    ╚██╗ ██╔╝██╔══╝  ██╔══██║██║██║     ██║     ██╔══╝  ");
-        System.out.println("                                                         ██║   ╚██████╔╝     ╚████╔╝ ███████╗██║  ██║██║╚██████╗███████╗███████╗");
-        System.out.println("                                                         ╚═╝    ╚═════╝       ╚═══╝  ╚══════╝╚═╝  ╚═╝╚═╝ ╚═════╝╚══════╝╚══════╝");
+        System.out.println(" ██╗   ██╗███████╗██╗  ██╗██╗ ██████╗██╗     ███████╗       ██████╗ ███████╗███╗   ██╗████████╗ █████╗ ██╗          ███████╗██╗   ██╗███████╗████████╗███████╗███╗   ███╗");
+        System.out.println(" ██║   ██║██╔════╝██║  ██║██║██╔════╝██║     ██╔════╝       ██╔══██╗██╔════╝████╗  ██║╚══██╔══╝██╔══██╗██║          ██╔════╝╚██╗ ██╔╝██╔════╝╚══██╔══╝██╔════╝████╗ ████║");
+        System.out.println(" ██║   ██║█████╗  ███████║██║██║     ██║     █████╗         ██████╔╝█████╗  ██╔██╗ ██║   ██║   ███████║██║          ███████╗ ╚████╔╝ ███████╗   ██║   █████╗  ██╔████╔██║");
+        System.out.println(" ╚██╗ ██╔╝██╔══╝  ██╔══██║██║██║     ██║     ██╔══╝         ██╔══██╗██╔══╝  ██║╚██╗██║   ██║   ██╔══██║██║          ╚════██║  ╚██╔╝  ╚════██║   ██║   ██╔══╝  ██║╚██╔╝██║");
+        System.out.println("  ╚████╔╝ ███████╗██║  ██║██║╚██████╗███████╗███████╗       ██║  ██║███████╗██║ ╚████║   ██║   ██║  ██║███████╗     ███████║   ██║   ███████║   ██║   ███████╗██║ ╚═╝ ██║");
+        System.out.println("   ╚═══╝  ╚══════╝╚═╝  ╚═╝╚═╝ ╚═════╝╚══════╝╚══════╝       ╚═╝  ╚═╝╚══════╝╚═╝  ╚═══╝   ╚═╝   ╚═╝  ╚═╝╚══════╝     ╚══════╝   ╚═╝   ╚══════╝   ╚═╝   ╚══════╝╚═╝     ╚═╝");
         System.out.println("                                                                                            ");
-        System.out.println("                                                      ██████╗ ███████╗███╗   ██╗████████╗ █████╗ ██╗                            ");
-        System.out.println("                                                      ██╔══██╗██╔════╝████╗  ██║╚══██╔══╝██╔══██╗██║                            ");
-        System.out.println("                                                      ██████╔╝█████╗  ██╔██╗ ██║   ██║   ███████║██║                            ");
-        System.out.println("                                                      ██╔══██╗██╔══╝  ██║╚██╗██║   ██║   ██╔══██║██║                            ");
-        System.out.println("                                                      ██║  ██║███████╗██║ ╚████║   ██║   ██║  ██║███████╗                       ");
-        System.out.println("                                                      ╚═╝  ╚═╝╚══════╝╚═╝  ╚═══╝   ╚═╝   ╚═╝  ╚═╝╚══════╝                       ");
-        System.out.println("                                                                                            ");
-        System.out.println("                                                      ███████╗██╗   ██╗███████╗████████╗███████╗███╗   ███╗                     ");
-        System.out.println("                                                      ██╔════╝╚██╗ ██╔╝██╔════╝╚══██╔══╝██╔════╝████╗ ████║                     ");
-        System.out.println("                                                      ███████╗ ╚████╔╝ ███████╗   ██║   █████╗  ██╔████╔██║                     ");
-        System.out.println("                                                      ╚════██║  ╚██╔╝  ╚════██║   ██║   ██╔══╝  ██║╚██╔╝██║                     ");
-        System.out.println("                                                      ███████║   ██║   ███████║   ██║   ███████╗██║ ╚═╝ ██║                     ");
-        System.out.println("                                                      ╚══════╝   ╚═╝   ╚══════╝   ╚═╝   ╚══════╝╚═╝     ╚═╝                     ");
+
         
 
         String firstName = "";
@@ -108,23 +92,6 @@ public class Main {
             }
         }
 
-        /*String address = "";
-        while (true) {
-            try {
-                System.out.print("Address: ");
-                address = sc.nextLine();
-
-                if (address.trim().isEmpty()) {
-                    throw new Exception("Address cannot be empty.");
-                }
-
-                break;
-
-            } catch (Exception e) {
-                System.out.println("Invalid input. Please enter a valid address.");
-            }
-        } */
-
         System.out.println("\nEnter Address Details:");
 
         System.out.print("House Number: ");
@@ -139,6 +106,9 @@ public class Main {
         System.out.print("City: ");
         String city = sc.nextLine();
 
+        System.out.print("Province: ");
+        String province = sc.nextLine();
+
         System.out.print("Zip Code: ");
         String zipCode = sc.nextLine();
 
@@ -147,9 +117,11 @@ public class Main {
                 street,
                 barangay,
                 city,
-                zipCode
+                zipCode,
+                province
         );
 
+        System.out.println("\nEnter Other Details:");
 
         String licenseNumber = "";
         while (true) {
@@ -180,8 +152,10 @@ public class Main {
 
                 break;
 
+            } catch(DateTimeParseException e){
+                System.out.println("Invalid date format. Use YYYY-MM-DD.");
             } catch (Exception e) {
-                System.out.println("Invalid input. Please enter a valid expiry date.");
+            System.out.println("Invalid input. Please enter a valid expiry date.");
             }
         }
 
@@ -191,8 +165,6 @@ public class Main {
             System.out.println("Invalid license.");
             return;
         }
-
-        //Customer customer = new Customer("CUS1", firstName, lastName, phoneNumber, address);
 
         int rentalDays = 0;
 
@@ -297,23 +269,42 @@ public class Main {
                         rentalDays,
                         0);
 
-        System.out.println("\nTotal amount: ₱" + total);
+        sc.nextLine();
 
-        rental.confirmAndPay();
-/*
-        private static void printSummary(RentalTransaction transaction, int rentalDays, DriversLicense license) {
-            System.out.println("\n===== Rental Summary =====");
-            System.out.println("Customer: " + transaction.getCustomer().getName());
-            System.out.println("License: " + license.getLicenseNumber() + " (valid until " + license.getExpiryDate() + ")");
-            System.out.println("Vehicle: " + transaction.getVehicle().displayName());
-            System.out.println("Insurance: " + transaction.getInsurance().getCoverageInfo());
-            System.out.println("Rental period: " + transaction.getRentalPeriod());
+        System.out.println();
+        System.out.println("===== Rental Summary =====");
+        System.out.println("Customer: " + customer.getFirstName() + " " + customer.getLastName());
+        System.out.println("License: " + licenseNumber + " (valid until " + expiryDate + ")");
+        System.out.println("Vehicle: " + list[choice].displayName());
+        System.out.println("Insurance: Basic Coverage (Minimum Protection)");
+        System.out.println("Rental days: " + rentalDays);
+        System.out.println("Total cost: ₱" + total);
+
+        System.out.print("Proceed with payment? (y/n): ");
+        String p = sc.nextLine();
+
+        if(p.equalsIgnoreCase("y")) {
+
+            System.out.println("Payment Method: Cash");
+            System.out.println("Paid Amount: ₱" + total);
+
+            System.out.println();
+            System.out.println("Rental confirmed successfully.");
+            System.out.println("===== Receipt =====");
+            System.out.println("Customer: " + customer.getFirstName() + " " + customer.getLastName());
+            System.out.println("Address: " + address.getRedactedAddress());
+            System.out.println("Phone Number: " + customer.getPhoneNumber());
+            System.out.println("Vehicle: " + list[choice].displayName());
             System.out.println("Rental days: " + rentalDays);
-            System.out.printf("Total cost: ₱%.2f%n", transaction.getTotalCost());
-        } */
+            System.out.println("Insurance: Basic Coverage (Minimum Protection)");
+            System.out.println("Status: CONFIRMED");
 
-        System.out.println("\nThank you for renting!");
+            rental.confirmAndPay();
 
-        sc.close();
+            System.out.println("\nThank you for renting!");
+
+            sc.close();
+        }
     }
 }
+
