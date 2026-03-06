@@ -12,142 +12,229 @@ public class Main {
 
         Scanner sc = new Scanner(System.in);
 
-        try {
-            Vehicle[] cars = new Vehicle[] {
-                    new Car("C1","Toyota","Vios",2000, VehicleStatus.AVAILABLE,4,true),
-                    new Car("C2","Honda","City",2200, VehicleStatus.AVAILABLE,4,true),
-                    new Car("C3","Suzuki","Celerio",1800, VehicleStatus.MAINTENANCE,4,false)
-            };
-            Vehicle[] motorcycles = new Vehicle[] {
-                    new Motorcycle("M1","Honda","Click",500, VehicleStatus.AVAILABLE,125,true),
-                    new Motorcycle("M2","Yamaha","Mio",450, VehicleStatus.AVAILABLE,115,true),
-                    new Motorcycle("M3","Suzuki","Raider",600, VehicleStatus.RENTED,150,true)
-            };
+        Vehicle[] cars = new Vehicle[] {
+                new Car("C1","Toyota","Vios",2000, VehicleStatus.AVAILABLE,4,true),
+                new Car("C2","Honda","City",2200, VehicleStatus.AVAILABLE,4,true),
+                new Car("C3","Suzuki","Celerio",1800, VehicleStatus.MAINTENANCE,4,false)
+        };
 
-            Vehicle[] trucks = new Vehicle[] {
-                    new Truck("T1","Isuzu","Elf",3000, VehicleStatus.AVAILABLE,2,"Small"),
-                    new Truck("T2","Mitsubishi","Canter",4000, VehicleStatus.AVAILABLE,3,"Medium"),
-                    new Truck("T3","Hino","500",5000, VehicleStatus.MAINTENANCE,5,"Large")
-            };
+        Vehicle[] motorcycles = new Vehicle[] {
+                new Motorcycle("M1","Honda","Click",500, VehicleStatus.AVAILABLE,125,true),
+                new Motorcycle("M2","Yamaha","Mio",450, VehicleStatus.AVAILABLE,115,true),
+                new Motorcycle("M3","Suzuki","Raider",600, VehicleStatus.RENTED,150,true)
+        };
 
-            System.out.println("===== Welcome to Vehicle Rental System =====");
+        Vehicle[] trucks = new Vehicle[] {
+                new Truck("T1","Isuzu","Elf",3000, VehicleStatus.AVAILABLE,2,"Small"),
+                new Truck("T2","Mitsubishi","Canter",4000, VehicleStatus.AVAILABLE,3,"Medium"),
+                new Truck("T3","Hino","500",5000, VehicleStatus.MAINTENANCE,5,"Large")
+        };
 
-            System.out.print("Enter your Name: ");
-            String name = sc.nextLine();
+        System.out.println("===== Welcome to Vehicle Rental System =====");
 
-            System.out.print("Phone Number: ");
-            String phoneNumber = sc.nextLine();
+        String name = "";
+        while (true) {
+            try {
+                System.out.print("Enter your Name: ");
+                name = sc.nextLine();
 
-            System.out.print("Address: ");
-            String address = sc.nextLine();
+                if (name.trim().isEmpty()) {
+                    throw new Exception("Name cannot be empty.");
+                }
 
-            System.out.print("License Number: ");
-            String licenseNumber = sc.nextLine();
+                break;
 
-            System.out.print("Expiry Date: ");
-            String expiryDate = sc.nextLine();
-
-            DriversLicense driverLicense =
-                    new DriversLicense(licenseNumber, expiryDate);
-
-            if (!driverLicense.isValid()) {
-                System.out.println("Invalid license.");
-                return;
+            } catch (Exception e) {
+                System.out.println("Invalid input. Please enter a valid name.");
             }
+        }
 
-            Customer customer =
-                    new Customer("CUS1", name, phoneNumber, address);
+        String phoneNumber = "";
+        while (true) {
+            try {
+                System.out.print("Phone Number: ");
+                phoneNumber = sc.nextLine();
 
-            System.out.print("How many days for rental? ");
-            int rentalDays = sc.nextInt();
+                if (phoneNumber.trim().isEmpty()) {
+                    throw new Exception("Phone number cannot be empty.");
+                }
 
-            System.out.println("\nWhat type of vehicle?");
-            System.out.println("1. Car");
-            System.out.println("2. Motorcycle");
-            System.out.println("3. Truck");
+                break;
 
-            int type = sc.nextInt();
-
-            Vehicle[] list;
-
-            if(type == 1)
-                list = cars;
-            else if(type == 2)
-                list = motorcycles;
-            else
-                list = trucks;
-
-            System.out.println("\nSelect Vehicle:");
-
-            for(int i=0;i<list.length;i++){
-                System.out.println((i+1)+". "
-                        + list[i].displayName()
-                        +" ₱"+list[i].pricePerDay
-                        +" ["+list[i].status+"]");
+            } catch (Exception e) {
+                System.out.println("Invalid input. Please enter a valid phone number.");
             }
-
-            int choice = sc.nextInt();
-
-            Vehicle selectedVehicle = list[choice-1];
-
-            Payment payment = new CashPayment();
-
-            Insurance insurance = new BasicInsurance();
-
-            RentalPeriod rentalPeriod =
-                    new RentalPeriod("Today","Future");
-
-            Reservation reservation =
-                    new Reservation("Today",
-                            selectedVehicle,
-                            customer);
-
-            RentalTransaction rental =
-                    reservation.toRentalTransaction(
-                            rentalPeriod,
-                            payment,
-                            insurance);
-
-            double total =
-                    rental.computeTotalCost(
-                            rentalDays,
-                            0);
-
-            System.out.println("\nTotal amount: ₱"+total);
-
-            rental.confirmAndPay();
-
-            System.out.println("\nThank you for renting!");
-
         }
 
-        catch(InputMismatchException e){
+        String address = "";
+        while (true) {
+            try {
+                System.out.print("Address: ");
+                address = sc.nextLine();
 
-            System.out.println("\nInvalid input!");
-            System.out.println("Please enter numbers only where required.");
+                if (address.trim().isEmpty()) {
+                    throw new Exception("Address cannot be empty.");
+                }
 
+                break;
+
+            } catch (Exception e) {
+                System.out.println("Invalid input. Please enter a valid address.");
+            }
         }
 
-        catch(ArrayIndexOutOfBoundsException e){
+        String licenseNumber = "";
+        while (true) {
+            try {
+                System.out.print("License Number: ");
+                licenseNumber = sc.nextLine();
 
-            System.out.println("\nInvalid selection!");
-            System.out.println("Please choose a valid option.");
+                if (licenseNumber.trim().isEmpty()) {
+                    throw new Exception("License number cannot be empty.");
+                }
 
+                break;
+
+            } catch (Exception e) {
+                System.out.println("Invalid input. Please enter a valid license number.");
+            }
         }
 
-        catch(Exception e){
+        String expiryDate = "";
+        while (true) {
+            try {
+                System.out.print("Expiry Date (YYYY-MM-DD): ");
+                expiryDate = sc.nextLine();
 
-            System.out.println("\nUnexpected Error Occurred.");
+                if (expiryDate.trim().isEmpty()) {
+                    throw new Exception("Expiry date cannot be empty.");
+                }
 
+                break;
+
+            } catch (Exception e) {
+                System.out.println("Invalid input. Please enter a valid expiry date.");
+            }
         }
 
-        finally{
+        DriversLicense driverLicense = new DriversLicense(licenseNumber, expiryDate);
 
-            sc.close();
-
-            System.out.println("\nProgram Ended.");
-
+        if (!driverLicense.isValid()) {
+            System.out.println("Invalid license.");
+            return;
         }
 
+        Customer customer = new Customer("CUS1", name, phoneNumber, address);
+
+        int rentalDays = 0;
+
+        while (true) {
+            try {
+                System.out.print("How many days for rental? ");
+                rentalDays = sc.nextInt();
+
+                if (rentalDays <= 0) {
+                    System.out.println("Rental days must be greater than 0.");
+                    continue;
+                }
+
+                break;
+
+            } catch (InputMismatchException e) {
+                System.out.println("Invalid input! Please enter a number.");
+                sc.nextLine();
+            }
+        }
+
+        int type = 0;
+
+        while (true) {
+            try {
+                System.out.println("\nWhat type of vehicle?");
+                System.out.println("1. Car");
+                System.out.println("2. Motorcycle");
+                System.out.println("3. Truck");
+
+                type = sc.nextInt();
+
+                if (type < 1 || type > 3) {
+                    System.out.println("Please choose between 1-3.");
+                    continue;
+                }
+
+                break;
+
+            } catch (InputMismatchException e) {
+                System.out.println("Invalid input! Enter a number.");
+                sc.nextLine();
+            }
+        }
+
+        Vehicle[] list;
+
+        if (type == 1)
+            list = cars;
+        else if (type == 2)
+            list = motorcycles;
+        else
+            list = trucks;
+
+        System.out.println("\nSelect Vehicle:");
+
+        for (int i = 0; i < list.length; i++) {
+            System.out.println((i + 1) + ". "
+                    + list[i].displayName()
+                    + " ₱" + list[i].pricePerDay
+                    + " [" + list[i].status + "]");
+        }
+
+        int choice = 0;
+
+        while (true) {
+            try {
+                System.out.print("Choose vehicle: ");
+                choice = sc.nextInt();
+
+                if (choice < 1 || choice > list.length) {
+                    System.out.println("Invalid selection.");
+                    continue;
+                }
+
+                break;
+
+            } catch (InputMismatchException e) {
+                System.out.println("Invalid input! Enter a number.");
+                sc.nextLine();
+            }
+        }
+
+        Vehicle selectedVehicle = list[choice - 1];
+
+        Payment payment = new CashPayment();
+        Insurance insurance = new BasicInsurance();
+
+        RentalPeriod rentalPeriod = new RentalPeriod("Today", "Future");
+
+        Reservation reservation =
+                new Reservation("Today", selectedVehicle, customer);
+
+        RentalTransaction rental =
+                reservation.toRentalTransaction(
+                        rentalPeriod,
+                        payment,
+                        insurance);
+
+        double total =
+                rental.computeTotalCost(
+                        rentalDays,
+                        0);
+
+        System.out.println("\nTotal amount: ₱" + total);
+
+        rental.confirmAndPay();
+
+        System.out.println("\nThank you for renting!");
+
+        sc.close();
     }
 }
