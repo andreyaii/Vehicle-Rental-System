@@ -1,15 +1,33 @@
 package models;
 
 public class Customer {
-    String customerId;
-    String name;
-    String phoneNumber;
-    String address;
+    private String customerId;
+    private String firstName;
+    private String lastName;
+    private String phoneNumber;
+    private Address address;
 
-    public Customer(String customerId, String name, String phoneNumber, String address) {
+    public Customer(String customerId, String firstName, String lastName, String phoneNumber, Address address) {
         this.customerId = customerId;
-        this.name = name;
+        this.firstName = firstName;
         this.phoneNumber = phoneNumber;
         this.address = address;
     }
+
+    public String getCustomerId() {
+        return customerId;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
 }

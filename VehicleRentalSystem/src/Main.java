@@ -32,14 +32,31 @@ public class Main {
 
         System.out.println("===== Welcome to Vehicle Rental System =====");
 
-        String name = "";
+        String firstName = "";
         while (true) {
             try {
-                System.out.print("Enter your Name: ");
-                name = sc.nextLine();
+                System.out.print("Enter First Name: ");
+                firstName = sc.nextLine();
 
-                if (name.trim().isEmpty()) {
-                    throw new Exception("Name cannot be empty.");
+                if (firstName.trim().isEmpty()) {
+                    throw new Exception("First Name cannot be empty.");
+                }
+
+                break;
+
+            } catch (Exception e) {
+                System.out.println("Invalid input. Please enter a valid name.");
+            }
+        }
+
+        String lastName = "";
+        while (true) {
+            try {
+                System.out.print("Enter Last Name: ");
+                lastName = sc.nextLine();
+
+                if (lastName.trim().isEmpty()) {
+                    throw new Exception("Last Name cannot be empty.");
                 }
 
                 break;
@@ -66,7 +83,7 @@ public class Main {
             }
         }
 
-        String address = "";
+        /*String address = "";
         while (true) {
             try {
                 System.out.print("Address: ");
@@ -81,7 +98,33 @@ public class Main {
             } catch (Exception e) {
                 System.out.println("Invalid input. Please enter a valid address.");
             }
-        }
+        } */
+
+        System.out.println("\nEnter Address Details:");
+
+        System.out.print("House Number: ");
+        String houseNumber = sc.nextLine();
+
+        System.out.print("Street: ");
+        String street = sc.nextLine();
+
+        System.out.print("Barangay: ");
+        String barangay = sc.nextLine();
+
+        System.out.print("City: ");
+        String city = sc.nextLine();
+
+        System.out.print("Zip Code: ");
+        String zipCode = sc.nextLine();
+
+        Address address = new Address(
+                houseNumber,
+                street,
+                barangay,
+                city,
+                zipCode
+        );
+
 
         String licenseNumber = "";
         while (true) {
@@ -124,7 +167,7 @@ public class Main {
             return;
         }
 
-        Customer customer = new Customer("CUS1", name, phoneNumber, address);
+        Customer customer = new Customer("CUS1", firstName, lastName, phoneNumber, address);
 
         int rentalDays = 0;
 
