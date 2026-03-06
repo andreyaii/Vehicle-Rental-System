@@ -21,9 +21,4 @@ public class Address {
     public String getRedactedAddress(){
         return "****, " + city + ", " + province + ", " + zipCode;
     }
-
-    /*@Override
-    public String toString() {
-        return getRedactedAddress();
-    } */
 }

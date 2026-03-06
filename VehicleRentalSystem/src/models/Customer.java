@@ -2,18 +2,9 @@ package models;
 import java.util.*;
 
 public class Customer {
-    //private String customerId = "CUS1";
     private String firstName;
     private String lastName;
     private String phoneNumber;
-    private Address address;
-
-    /*public Customer(String customerId, String firstName, String lastName, String phoneNumber, Address address) {
-        this.customerId = customerId;
-        this.firstName = firstName;
-        this.phoneNumber = phoneNumber;
-        this.address = address;
-    }*/
 
     public void setPhoneNumber(String phoneNumber) {
 
@@ -23,10 +14,6 @@ public class Customer {
 
         this.phoneNumber = phoneNumber;
     }
-
-    /*public String getCustomerId() {
-        return customerId;
-    }*/
 
     public String getFirstName() {
         return firstName;
@@ -57,14 +44,6 @@ public class Customer {
         String lastFour = phoneNumber.substring(phoneNumber.length() - 4);
 
         return firstTwo + "*****" + lastFour;
-    }
-
-    /*public Address setAddress(Address address) {
-        this.address = address;
-    }*/
-
-    public Address getAddress() {
-        return address;
     }
 
 }
