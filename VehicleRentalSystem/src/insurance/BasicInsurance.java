@@ -2,7 +2,7 @@ package insurance;
 
 public class BasicInsurance extends Insurance {
 
-    BasicInsurance() {
+    public BasicInsurance() {
         super("Basic Coverage (Minimum Protection)", 200); // ₱200/day
     }
 }

@@ -1,8 +1,7 @@
-import models.Car;
-import models.Motorcycle;
-import models.Truck;
-import models.Vehicle;
-import utils.VehicleStatus;
+import models.*;
+import insurance.*;
+import payments.*;
+import utils.*;
 
 import java.util.Scanner;
 import java.util.InputMismatchException;
@@ -48,8 +47,8 @@ public class Main {
             System.out.print("Expiry Date: ");
             String expiryDate = sc.nextLine();
 
-            DriverLicense driverLicense =
-                    new DriverLicense(licenseNumber, expiryDate);
+            DriversLicense driverLicense =
+                    new DriversLicense(licenseNumber, expiryDate);
 
             if (!driverLicense.isValid()) {
                 System.out.println("Invalid license.");

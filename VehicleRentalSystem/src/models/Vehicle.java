@@ -1,14 +1,16 @@
 package models;
 
+import utils.VehicleStatus;
+
 public abstract class Vehicle {
 
     String vehicleId;
     String brand;
     String model;
-    double pricePerDay;
-    VehicleStatus status;
+    public double pricePerDay;
+    public VehicleStatus status;
 
-    Vehicle(String vehicleId, String brand, String model, double pricePerDay, VehicleStatus status) {
+    public Vehicle(String vehicleId, String brand, String model, double pricePerDay, VehicleStatus status) {
         this.vehicleId = vehicleId;
         this.brand = brand;
         this.model = model;
@@ -24,7 +26,7 @@ public abstract class Vehicle {
         this.status = newStatus;
     }
 
-    String displayName() {
+    public String displayName() {
         return brand + " " + model + " (" + vehicleId + ")";
     }
 }

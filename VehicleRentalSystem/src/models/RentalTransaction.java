@@ -1,5 +1,11 @@
 package models;
 
+import insurance.Insurance;
+import payments.Payment;
+import utils.RentalPeriod;
+import utils.VehicleStatus;
+import utils.PriceCalculator;
+
 public class RentalTransaction {
     Customer customer;
     Vehicle vehicle;
@@ -10,7 +16,7 @@ public class RentalTransaction {
     String rentalStatus;
     double totalCost;
 
-    RentalTransaction(Customer customer, Vehicle vehicle, Payment payment, Insurance insurance, RentalPeriod rentalPeriod) {
+    public RentalTransaction(Customer customer, Vehicle vehicle, Payment payment, Insurance insurance, RentalPeriod rentalPeriod) {
         this.customer = customer;
         this.vehicle = vehicle;
         this.payment = payment;
@@ -21,12 +27,12 @@ public class RentalTransaction {
         this.totalCost = 0;
     }
 
-    double computeTotalCost(int rentalDays, double penalties) {
+    public double computeTotalCost(int rentalDays, double penalties) {
         totalCost = PriceCalculator.computeTotal(vehicle.pricePerDay, rentalDays, insurance.costPerDay, penalties);
         return totalCost;
     }
 
-    boolean confirmAndPay() {
+    public boolean confirmAndPay() {
         if (!vehicle.isAvailable()) {
             System.out.println("❌ Vehicle is not available. Status: " + vehicle.status);
             rentalStatus = "CANCELLED";
