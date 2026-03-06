@@ -11,7 +11,7 @@ public class Main {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
-
+        Customer customer = new Customer();
         Vehicle[] cars = new Vehicle[] {
                 new Car("C1","Toyota","Vios",2000, VehicleStatus.AVAILABLE,4,true),
                 new Car("C2","Honda","City",2200, VehicleStatus.AVAILABLE,4,true),
@@ -33,27 +33,24 @@ public class Main {
         System.out.println("===== Welcome to Vehicle Rental System =====");
 
         String firstName = "";
-        while (true) {
+        while (true){
             try {
                 System.out.print("Enter First Name: ");
                 firstName = sc.nextLine();
-
-                if (firstName.trim().isEmpty()) {
-                    throw new Exception("First Name cannot be empty.");
-                }
-
+                customer.setFirstName(firstName);
                 break;
-
             } catch (Exception e) {
                 System.out.println("Invalid input. Please enter a valid name.");
             }
         }
+
 
         String lastName = "";
         while (true) {
             try {
                 System.out.print("Enter Last Name: ");
                 lastName = sc.nextLine();
+                customer.setLastName(lastName);
 
                 if (lastName.trim().isEmpty()) {
                     throw new Exception("Last Name cannot be empty.");
@@ -71,6 +68,7 @@ public class Main {
             try {
                 System.out.print("Phone Number: ");
                 phoneNumber = sc.nextLine();
+                customer.setPhoneNumber(phoneNumber);
 
                 if (phoneNumber.trim().isEmpty()) {
                     throw new Exception("Phone number cannot be empty.");
@@ -167,7 +165,7 @@ public class Main {
             return;
         }
 
-        Customer customer = new Customer("CUS1", firstName, lastName, phoneNumber, address);
+        //Customer customer = new Customer("CUS1", firstName, lastName, phoneNumber, address);
 
         int rentalDays = 0;
 
@@ -275,6 +273,17 @@ public class Main {
         System.out.println("\nTotal amount: ₱" + total);
 
         rental.confirmAndPay();
+/*
+        private static void printSummary(RentalTransaction transaction, int rentalDays, DriversLicense license) {
+            System.out.println("\n===== Rental Summary =====");
+            System.out.println("Customer: " + transaction.getCustomer().getName());
+            System.out.println("License: " + license.getLicenseNumber() + " (valid until " + license.getExpiryDate() + ")");
+            System.out.println("Vehicle: " + transaction.getVehicle().displayName());
+            System.out.println("Insurance: " + transaction.getInsurance().getCoverageInfo());
+            System.out.println("Rental period: " + transaction.getRentalPeriod());
+            System.out.println("Rental days: " + rentalDays);
+            System.out.printf("Total cost: ₱%.2f%n", transaction.getTotalCost());
+        } */
 
         System.out.println("\nThank you for renting!");
 
